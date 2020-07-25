@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+
+spec:
+  template:
+    metadata:
+      name: first-pod-dec
+      labels:
+        app: myapp
+        type: restapi
+
+    spec:
+      containers:
+        - name: simple-api
+          image: omarelkhatib/app_040:2.0 
+
+  replicas: 6 
+  selector:
+    matchLabels:
+      app: myapp
+      type: restapi

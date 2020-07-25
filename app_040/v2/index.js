@@ -4,7 +4,7 @@ var ip = require('ip')
 var os = require('os')
 
 app.get('/', function (req, res) {
-    res.send('Simple API says "Hello!"')
+    res.send('Simple API says I am version 2')
 })
 
 app.get('/server/url', function (req, res) {
