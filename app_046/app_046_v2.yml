@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment-v2
+
+spec:
+  template:
+    metadata:
+      name: myapp-v2
+      labels:
+        app: myapp-v2
+        type: restapi
+
+    spec:
+      containers:
+        - name: simple-api
+          image: gcr.io/google-samples/hello-app:2.0 
+
+  replicas: 6 
+  selector:
+    matchLabels:
+      app: myapp-v2
+      type: restapi
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: myapp-v2-service
+spec:
+  selector:
+    app: myapp-v2
+  ports:
+    - port: 8080 # Default port for image
