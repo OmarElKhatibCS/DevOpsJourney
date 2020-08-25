@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+        name: configs
+data:
+        LANGUAGE: Polish
+        API_KEY: 333-444-555
